@@ -224,6 +224,17 @@ GATEWAY: [NorthAmerica|Europe|Asia]:
 ...
 ```
 
+### Providing password through command line
+
+If you want to connect via a command, without having to provide a password by hand, you can use this trick:
+
+```sh
+#!/bin/sh
+echo <password> | sudo openconnect -u <username> --passwd-on-stdin <other options here>
+```
+
+Warning: storing a password in plaintext is a risk. Make sure to prevent other people from accessing it and secure it with filsystem permissions.
+
 # TODO
 
 * Support web-based/SAML-based authentication flows (see [pull #98](//github.com/dlenski/openconnect/issues/98) for preliminary work, and [issue #116](//github.com/dlenski/openconnect/issues/116) for more discussion regarding Okta)
